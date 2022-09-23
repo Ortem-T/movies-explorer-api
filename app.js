@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 const { PORT = 3000 } = process.env;
 const app = express();
+const { errors } = require('celebrate');
 const handleError = require('./errors/handleError');
-const { login, createUser } = require('./controllers/users');
-const auth = require('./middlewares/auth');
+const routes = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 app.use(express.json());
@@ -16,23 +16,10 @@ mongoose.connect('mongodb://localhost:27017/bitfilmsdb', {
 
 app.use(requestLogger);
 
-app.post(
-  '/signin',
-  login,
-);
-
-app.post(
-  '/signup',
-  createUser,
-);
-
-app.use(auth);
-
-app.use('/', require('./routes/users'));
-app.use('/', require('./routes/movies'));
+app.use(routes);
 
 app.use(errorLogger);
-
+app.use(errors());
 app.use(handleError);
 
 app.listen(PORT);
