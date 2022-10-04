@@ -1,1 +1,1 @@
-# movies-explorer-api
+# api.diplom.ortem.nomorepartiesxyz.ru
