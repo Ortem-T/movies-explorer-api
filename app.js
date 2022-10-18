@@ -15,6 +15,8 @@ const options = {
     'http://localhost:3000',
     'http://diplom.ortem.nomoredomains.club',
     'https://diplom.ortem.nomoredomains.club',
+    'http://diplom.ortem.nomorepartiesxyz.ru',
+    'https://diplom.ortem.nomorepartiesxyz.ru',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
